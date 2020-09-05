@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Notification!");
         alertDialog.setIcon(R.drawable.exclamation_icon);
-
         alertDialog.setMessage("Do you want to delete " + arrayName.get(position) +"?");
 
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
