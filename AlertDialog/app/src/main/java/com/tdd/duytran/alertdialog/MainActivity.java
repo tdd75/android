@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void confirmDelete(final int position) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Notification!");
+        alertDialog.setTitle("Confirm");
         alertDialog.setIcon(R.drawable.exclamation_icon);
         alertDialog.setMessage("Do you want to delete " + arrayName.get(position) +"?");
 
