@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Global App</string>
+    <string name="text_title">Information</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="text_submit">Submit</string>
+    <string name="text_hello">Hello</string>
+    <string name="text_email">Email</string>
+    <string name="text_phone">Phone</string>
+</resources>
