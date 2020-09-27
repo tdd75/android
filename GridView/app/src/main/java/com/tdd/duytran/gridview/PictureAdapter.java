@@ -1,4 +1,4 @@
-package com.tdd.duytran.listview;
+package com.tdd.duytran.gridview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,25 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
-public class FruitAdapter extends BaseAdapter {
-
+public class PictureAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<Fruit> fruitList;
+    private List<Picture> pictureList;
 
-    public FruitAdapter(Context context, int layout, List<Fruit> fruitList) {
+    public PictureAdapter(Context context, int layout, List<Picture> pictureList) {
         this.context = context;
         this.layout = layout;
-        this.fruitList = fruitList;
+        this.pictureList = pictureList;
     }
 
     @Override
     public int getCount() {
-        return fruitList.size();
+        return pictureList.size();
     }
 
     @Override
@@ -38,34 +36,25 @@ public class FruitAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView txtName, txtDescription;
-        ImageView imgFruit;
+        ImageView imgPicture;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
-        if(convertView == null){
+        if(convertView == null) {
             holder = new ViewHolder();
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(layout, null);
-            // mapping view
-            holder.txtName = (TextView) convertView.findViewById(R.id.textName);
-            holder.txtDescription = (TextView) convertView.findViewById(R.id.textDescription);
-            holder.imgFruit = (ImageView) convertView.findViewById(R.id.imageFruit);
+            holder.imgPicture = (ImageView) convertView.findViewById(R.id.imageViewPicture);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        // assign value
-        Fruit fruit = fruitList.get(position);
-
-        holder.txtName.setText(fruit.getName());
-        holder.txtDescription.setText(fruit.getDescription());
-        holder.imgFruit.setImageResource(fruit.getImage());
-
+        Picture picture = pictureList.get(position);
+        holder.imgPicture.setImageResource(picture.getPicture());
         return convertView;
     }
 }
