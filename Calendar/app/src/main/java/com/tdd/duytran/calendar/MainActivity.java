@@ -3,12 +3,14 @@ package com.tdd.duytran.calendar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -17,11 +19,11 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtTime, txtInterval;
-    EditText edtDate1, edtDate2;
+    EditText edtDate1, edtDate2, edtTime;
     Button btnCalculate;
     ;
     Calendar calendar1, calendar2;
-    SimpleDateFormat dateFormat;
+    SimpleDateFormat simpleDateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
                 calculateInterval();
             }
         });
+
+        // Time Picker Dialog
+        edtTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickTime();
+            }
+        });
     }
 
     private void mapping() {
@@ -65,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         txtInterval = (TextView) findViewById(R.id.textViewInterval);
         edtDate1 = (EditText) findViewById(R.id.editTextDate1);
         edtDate2 = (EditText) findViewById(R.id.editTextDate2);
+        edtTime = (EditText) findViewById(R.id.editTextTime);
         btnCalculate = (Button) findViewById(R.id.buttonCalculate);
     }
 
@@ -77,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar1.set(year, month, dayOfMonth);
-                dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                edtDate1.setText(dateFormat.format(calendar1.getTime()));
+                simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                edtDate1.setText(simpleDateFormat.format(calendar1.getTime()));
             }
         }, year, month, day);
         // month + 1
@@ -94,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar2.set(year, month, dayOfMonth);
-                dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                edtDate2.setText(dateFormat.format(calendar2.getTime()));
+                simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                edtDate2.setText(simpleDateFormat.format(calendar2.getTime()));
             }
         }, year, month, day);
         datePickerDialog.show();
@@ -108,5 +119,20 @@ public class MainActivity extends AppCompatActivity {
         } else {
             txtInterval.setText("Interval: " + countDay);
         }
+    }
+
+    private void pickTime() {
+        final Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(0, 0, 0, hourOfDay, minute);
+                simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                edtTime.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        }, hour, minute, true);
+        timePickerDialog.show();
     }
 }
