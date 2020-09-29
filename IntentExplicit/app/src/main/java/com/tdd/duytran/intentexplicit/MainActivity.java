@@ -9,14 +9,13 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-    Button btnMain;
+    Button btnMain, btnSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnMain = (Button) findViewById(R.id.buttonMain);
-
         btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,12 +24,25 @@ public class MainActivity extends Activity {
             }
         });
         Log.d("OUT", "onCreate Main");
+
+        // send data
+        btnSend = (Button) findViewById(R.id.buttonSend);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("data", 2020);
+//                Student student = new Student("Duy", 20);
+//                intent.putExtra("data", (Serializable) student);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("OUT", "onStart Main");
+    protected void onPause() {
+        super.onPause();
+        Log.d("OUT", "onPause Main");
     }
 
     @Override
@@ -40,15 +52,15 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("OUT", "onResume Main");
+    protected void onStart() {
+        super.onStart();
+        Log.d("OUT", "onStart Main");
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("OUT", "onPause Main");
+    protected void onResume() {
+        super.onResume();
+        Log.d("OUT", "onResume Main");
     }
 
     @Override

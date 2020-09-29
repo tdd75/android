@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends Activity {
 
     Button btnSecond;
+    TextView txtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,13 @@ public class SecondActivity extends Activity {
             }
         });
         Log.d("OUT", "onCreate Second");
+
+        // get data
+        txtResult = (TextView) findViewById(R.id.textViewResult);
+        Intent intent = getIntent();
+        txtResult.setText(intent.getIntExtra("data", 1234) + "");
+//        Student student = (Student) intent.getSerializableExtra("data");
+//        txtResult.setText(student.getName() + "");
     }
 
     @Override
