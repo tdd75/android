@@ -31,9 +31,17 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("data", 2020);
+//                intent.putExtra("data", 2020);
+
 //                Student student = new Student("Duy", 20);
 //                intent.putExtra("data", (Serializable) student);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("number", 75);
+                bundle.putString("string", "This is a string");
+                Student student = new Student("Duy", 20);
+                bundle.putSerializable("student", student);
+                intent.putExtra("data", bundle);
                 startActivity(intent);
             }
         });

@@ -31,9 +31,16 @@ public class SecondActivity extends Activity {
         // get data
         txtResult = (TextView) findViewById(R.id.textViewResult);
         Intent intent = getIntent();
-        txtResult.setText(intent.getIntExtra("data", 1234) + "");
+//        txtResult.setText(intent.getIntExtra("data", 1234) + "");
+
 //        Student student = (Student) intent.getSerializableExtra("data");
 //        txtResult.setText(student.getName() + "");
+        Bundle bundle = intent.getBundleExtra("data");
+        if(bundle != null) {
+            Student student = (Student) bundle.getSerializable("student");
+            txtResult.setText(student.getName());
+            txtResult.setText(bundle.getInt("number") + "");
+        }
     }
 
     @Override
