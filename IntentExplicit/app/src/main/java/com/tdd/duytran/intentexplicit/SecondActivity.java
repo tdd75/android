@@ -24,6 +24,7 @@ public class SecondActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
             }
         });
         Log.d("OUT", "onCreate Second");
