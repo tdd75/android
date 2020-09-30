@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">IntentPractice</string>
+    <string-array name="list_name">
+        <item>bird0</item>
+        <item>bird1</item>
+        <item>bird2</item>
+        <item>bird3</item>
+        <item>bird4</item>
+        <item>bird5</item>
+        <item>bird6</item>
+        <item>bird7</item>
+        <item>pig0</item>
+    </string-array>
+</resources>
