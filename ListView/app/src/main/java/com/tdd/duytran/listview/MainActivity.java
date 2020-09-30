@@ -37,5 +37,23 @@ public class MainActivity extends AppCompatActivity {
         arrayFruit.add(new Fruit("Watermelon", "Quả dưa hấu", R.drawable.watermelon));
         arrayFruit.add(new Fruit("Lemon", "Quả chanh", R.drawable.lemon));
 
+        arrayFruit.add(new Fruit("Orange", "Quả cam", R.drawable.orange));
+        arrayFruit.add(new Fruit("Apple", "Quả táo", R.drawable.apple));
+        arrayFruit.add(new Fruit("Pineapple", "Quả dứa", R.drawable.pineapple));
+        arrayFruit.add(new Fruit("Strawberry", "Quả dâu tây", R.drawable.strawberry));
+        arrayFruit.add(new Fruit("Banana", "Quả chuối", R.drawable.banana));
+        arrayFruit.add(new Fruit("Grape", "Quả nho", R.drawable.grape));
+        arrayFruit.add(new Fruit("Watermelon", "Quả dưa hấu", R.drawable.watermelon));
+        arrayFruit.add(new Fruit("Lemon", "Quả chanh", R.drawable.lemon));
+
+        arrayFruit.add(new Fruit("Orange", "Quả cam", R.drawable.orange));
+        arrayFruit.add(new Fruit("Apple", "Quả táo", R.drawable.apple));
+        arrayFruit.add(new Fruit("Pineapple", "Quả dứa", R.drawable.pineapple));
+        arrayFruit.add(new Fruit("Strawberry", "Quả dâu tây", R.drawable.strawberry));
+        arrayFruit.add(new Fruit("Banana", "Quả chuối", R.drawable.banana));
+        arrayFruit.add(new Fruit("Grape", "Quả nho", R.drawable.grape));
+        arrayFruit.add(new Fruit("Watermelon", "Quả dưa hấu", R.drawable.watermelon));
+        arrayFruit.add(new Fruit("Lemon", "Quả chanh", R.drawable.lemon));
+
     }
 }
