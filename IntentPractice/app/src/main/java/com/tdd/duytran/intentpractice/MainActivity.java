@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             if(idAnswer == idRoot) {
                 Toast.makeText(this, "Correct !!!", Toast.LENGTH_SHORT).show();
                 point += 10;
+                idRoot = 0;
                 new CountDownTimer(2000, 100) {
                     @Override
                     public void onTick(long millisUntilFinished) {
