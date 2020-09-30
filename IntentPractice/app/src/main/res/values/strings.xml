@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IntentPractice</string>
+    <string name="app_name">Intent Practice</string>
     <string-array name="list_name">
         <item>bird0</item>
         <item>bird1</item>

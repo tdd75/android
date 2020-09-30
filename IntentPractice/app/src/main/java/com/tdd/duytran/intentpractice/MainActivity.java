@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgRoot, imgAnswer;
     TextView txtPoint;
     int REQUEST_CODE_PICTURE = 1234, idRoot, point = 100;
+    SharedPreferences savePoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mapping();
+        savePoint = getSharedPreferences("dataPoint", MODE_PRIVATE);
+        point = savePoint.getInt("point", 100);
 
         txtPoint.setText(point + "");
 
@@ -62,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             if(idAnswer == idRoot) {
                 Toast.makeText(this, "Correct !!!", Toast.LENGTH_SHORT).show();
                 point += 10;
+                save();
                 idRoot = 0;
                 new CountDownTimer(2000, 100) {
                     @Override
@@ -75,12 +81,14 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Wrong ...", Toast.LENGTH_SHORT).show();
                 point -= 5;
+                save();
             }
         }
 
         if(requestCode == REQUEST_CODE_PICTURE && resultCode == RESULT_CANCELED) {
             Toast.makeText(this, "You've not selected a picture.\nDo you want to see it again? =]] ", Toast.LENGTH_LONG).show();
             point -= 15;
+            save();
         }
 
         txtPoint.setText(point + "");
@@ -103,5 +111,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         newGame();
         return super.onOptionsItemSelected(item);
+    }
+
+    private void save() {
+        SharedPreferences.Editor editor = savePoint.edit();
+        editor.putInt("point", point);
+        editor.commit();
     }
 }
