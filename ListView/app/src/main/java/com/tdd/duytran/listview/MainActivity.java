@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new FruitAdapter(MainActivity.this, R.layout.line_fruit, arrayFruit);
         lvFruit.setAdapter(adapter);
-
     }
 
     private void mapping() {
