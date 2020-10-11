@@ -54,7 +54,7 @@ public class WordAdapter extends BaseAdapter {
             convertView = inflater.inflate(layout, null);
 
             holder.txtEnglish = (TextView) convertView.findViewById(R.id.textViewEnglish);
-            holder.txtVietnamese = (TextView) convertView.findViewById(R.id.textViewExample);
+            holder.txtVietnamese = (TextView) convertView.findViewById(R.id.textViewVietnamese);
             holder.txtExample = (TextView) convertView.findViewById(R.id.textViewExample);
             holder.imgPicture = (ImageView) convertView.findViewById(R.id.imageViewPicture);
             convertView.setTag(holder);
