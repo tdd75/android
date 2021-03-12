@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         imgBell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.startAnimation(animTranslate);
+                v.startAnimation(animScale);
             }
         });
     }
